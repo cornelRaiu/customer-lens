@@ -1,0 +1,9 @@
+/vendor/
+/vendor-prefixed/
+/dist/
+/node_modules/
+/tests/php/wp-tests-config.local.php
+.phpunit.result.cache
+.phpcs-cache
+.idea/
+.DS_Store
