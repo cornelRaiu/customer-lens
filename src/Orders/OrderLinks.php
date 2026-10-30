@@ -204,6 +204,45 @@ final class OrderLinks {
 		return $positions;
 	}
 
+	/**
+	 * Everything the orders list shows for a page of orders, in one query: each order's place among its
+	 * customer's orders, the customer's flag and the customer's signals.
+	 *
+	 * @param int[] $order_ids
+	 * @return array<int, array<string, mixed>> Order ID => row; orders not linked yet are missing.
+	 */
+	public static function summaries( array $order_ids ): array {
+		global $wpdb;
+
+		$links     = Schema::table( Schema::ORDER_CUSTOMERS );
+		$customers = Schema::table( Schema::CUSTOMERS );
+		$signals   = Schema::table( Schema::SIGNALS );
+		$ids       = Db::ids( $order_ids );
+		$skipped   = Db::strings( self::NOT_COUNTED );
+
+		$rows = $wpdb->get_results(
+			"SELECT o.order_id, o.customer_id, c.flag_status, s.*, 1 + (
+				SELECT COUNT(*) FROM {$links} p
+				WHERE p.customer_id = o.customer_id AND p.order_id <> o.order_id AND p.status NOT IN ({$skipped})
+				AND ( p.created_at < o.created_at OR ( p.created_at = o.created_at AND p.order_id < o.order_id ) )
+			) AS ordinal
+			FROM {$links} o
+			INNER JOIN {$customers} c ON c.id = o.customer_id
+			LEFT JOIN {$signals} s ON s.customer_id = o.customer_id
+			WHERE o.order_id IN ({$ids})",
+			ARRAY_A
+		);
+
+		$summaries = [];
+		foreach ( $rows as $row ) {
+			$row['customer_id'] = (int) $row['customer_id'];
+
+			$summaries[ (int) $row['order_id'] ] = $row;
+		}
+
+		return $summaries;
+	}
+
 	/** Moves an order to another customer. */
 	public static function move( int $order_id, int $customer_id ): void {
 		global $wpdb;

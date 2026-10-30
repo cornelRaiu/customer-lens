@@ -51,6 +51,11 @@ final class Settings {
 		return $settings[ $key ] ?? null;
 	}
 
+	/** Saves one settings tab: the fields it sends, over the stored values of the other tabs. */
+	public static function save( $input ): array {
+		return self::sanitize( array_merge( self::all(), is_array( $input ) ? $input : [] ) );
+	}
+
 	public static function sanitize( $input ): array {
 		$defaults = self::defaults();
 		$input    = is_array( $input ) ? $input : [];

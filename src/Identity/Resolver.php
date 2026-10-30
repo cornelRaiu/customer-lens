@@ -42,9 +42,9 @@ final class Resolver {
 	 *
 	 * @return array{customer: int, previous: int} The order's customer, and the one it had before (0 if none).
 	 */
-	public static function resolve( WC_Order $order ): array {
+	public static function resolve( WC_Order $order, ?OrderIdentifiers $ids = null ): array {
 		$order_id = $order->get_id();
-		$ids      = OrderIdentifiers::from_order( $order );
+		$ids      = $ids ?? OrderIdentifiers::from_order( $order );
 		$previous = OrderLinks::customer_of( $order_id );
 
 		$identity_ids = [];

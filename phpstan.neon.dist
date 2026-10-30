@@ -7,8 +7,11 @@ parameters:
 		- customer-lens.php
 		- uninstall.php
 		- src
+		- templates
 	scanFiles:
 		- vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+		- vendor/php-stubs/woocommerce-stubs/woocommerce-packages-stubs.php
+		- tests/phpstan/wp-cli.php
 	scanDirectories:
 		- vendor-prefixed
 	# The WooCommerce stubs define WC_VERSION as '0.0.0'.

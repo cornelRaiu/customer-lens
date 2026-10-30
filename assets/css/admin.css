@@ -1,0 +1,340 @@
+/* Customer Lens: the order screen panel and the orders list column. Core admin colours only. */
+
+#customer-lens-panel {
+	border-left: 4px solid #7f54b3;
+}
+
+#customer-lens-panel .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.mwtcl {
+	transition: opacity 0.15s;
+}
+
+.mwtcl.is-busy {
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.mwtcl-head {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 12px;
+	align-items: center;
+	padding: 12px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.mwtcl-who {
+	color: #50575e;
+}
+
+.mwtcl-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-left: auto;
+}
+
+.mwtcl-strip {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	padding: 12px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.mwtcl-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 9px;
+	border: 1px solid #c3c4c7;
+	border-radius: 12px;
+	background: #f6f7f7;
+	color: #1d2327;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+.mwtcl-badge--warning {
+	border-color: #dba617;
+	background: #fcf9e8;
+	color: #674e00;
+}
+
+.mwtcl-badge--critical {
+	border-color: #d63638;
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+.mwtcl-badge--good {
+	border-color: #00a32a;
+	background: #edfaef;
+	color: #005c14;
+}
+
+.mwtcl-line {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 12px;
+	align-items: center;
+	margin: 0;
+	padding: 10px 12px;
+	border-bottom: 1px solid #f0f0f1;
+	background: #f6f7f7;
+}
+
+.mwtcl-line--info {
+	background: #f0f6fc;
+}
+
+.mwtcl-body {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.mwtcl-orders {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 12px;
+	border-right: 1px solid #f0f0f1;
+}
+
+.mwtcl-orders-head {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 16px;
+	align-items: baseline;
+}
+
+.mwtcl-filters a {
+	text-decoration: none;
+}
+
+.mwtcl-filters a.current {
+	color: #1d2327;
+	font-weight: 600;
+}
+
+.mwtcl-table-wrap {
+	overflow-x: auto;
+}
+
+.mwtcl-table td,
+.mwtcl-table th {
+	vertical-align: middle;
+}
+
+.mwtcl-table mark.order-status {
+	white-space: nowrap;
+}
+
+.mwtcl-pages {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: space-between;
+	align-items: center;
+	color: #646970;
+}
+
+.mwtcl-side {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 12px;
+}
+
+.mwtcl-list {
+	margin: 6px 0 0;
+	padding: 0;
+	list-style: none;
+	color: #50575e;
+	line-height: 1.6;
+	overflow-wrap: anywhere;
+}
+
+.mwtcl-timeline li {
+	margin-bottom: 8px;
+}
+
+.mwtcl-when {
+	display: block;
+	color: #1d2327;
+}
+
+.mwtcl-note-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.mwtcl-note-form textarea {
+	width: 100%;
+}
+
+.mwtcl-muted {
+	color: #646970;
+}
+
+.mwtcl-small {
+	margin: 0;
+	font-size: 12px;
+}
+
+.mwtcl-empty {
+	margin: 0;
+	padding: 4px 0;
+	color: #646970;
+}
+
+#customer-lens-panel > .inside > .mwtcl > .mwtcl-empty {
+	padding: 12px;
+}
+
+.mwtcl .button-link.mwtcl-delete {
+	color: #b32d2e;
+}
+
+.mwtcl-dialog {
+	width: min(560px, calc(100vw - 32px));
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.mwtcl-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.mwtcl-dialog form {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 20px 24px;
+}
+
+.mwtcl-dialog h2 {
+	margin: 0;
+	font-size: 16px;
+}
+
+.mwtcl-dialog fieldset {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.mwtcl-dialog legend {
+	margin-bottom: 6px;
+	padding: 0;
+	font-weight: 600;
+}
+
+.mwtcl-option {
+	display: grid;
+	grid-template-columns: 20px minmax(0, 1fr);
+	gap: 10px;
+	padding: 10px 12px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+}
+
+.mwtcl-option:has(input:checked) {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+.mwtcl-option span span {
+	display: block;
+	margin-top: 2px;
+	color: #646970;
+	font-size: 12px;
+}
+
+.mwtcl-fields {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 160px;
+	gap: 12px;
+}
+
+.mwtcl-fields label span {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 600;
+}
+
+.mwtcl-fields textarea,
+.mwtcl-fields select {
+	width: 100%;
+}
+
+.mwtcl-dialog-buttons {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.mwtcl-dialog-buttons .mwtcl-delete {
+	margin-right: auto;
+}
+
+@media (max-width: 960px) {
+	.mwtcl-body {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.mwtcl-orders {
+		border-right: 0;
+		border-bottom: 1px solid #f0f0f1;
+	}
+
+	.mwtcl-actions {
+		margin-left: 0;
+	}
+
+	.mwtcl-fields {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* The Customer Lens column of the orders list. */
+
+.column-customer_lens {
+	width: 16%;
+}
+
+.column-customer_lens .mwtcl-badge {
+	margin: 0 4px 4px 0;
+	font-size: 11.5px;
+}
+
+/* Settings. */
+
+.mwtcl-threshold {
+	display: inline-flex;
+	gap: 6px;
+	align-items: center;
+	margin-right: 16px;
+}
+
+.mwtcl-policy {
+	display: grid;
+	gap: 6px;
+	justify-items: start;
+	max-width: 760px;
+	margin-bottom: 16px;
+}

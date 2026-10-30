@@ -3,8 +3,17 @@
 namespace CustomerLens;
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
+use CustomerLens\Admin\OrderPanel;
+use CustomerLens\Admin\OrdersList;
+use CustomerLens\Admin\SettingsPage;
+use CustomerLens\Cli\Command;
+use CustomerLens\Import\Importer;
 use CustomerLens\Install\Schema;
 use CustomerLens\Orders\OrderSync;
+use CustomerLens\Maintenance\Maintenance;
+use CustomerLens\Privacy\Privacy;
+use CustomerLens\Rest\Routes;
+use WP_CLI;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -12,6 +21,9 @@ final class Plugin {
 
 	public const VERSION = '0.1.0';
 	public const MIN_WC  = '8.2';
+
+	/** Filters the capability that can see the panel and act on customers (manage_woocommerce). */
+	public const CAPABILITY_FILTER = 'mwtcl_capability';
 
 	private static string $file = '';
 
@@ -33,6 +45,20 @@ final class Plugin {
 		Schema::maybe_upgrade();
 
 		OrderSync::add_hooks();
+		Importer::add_hooks();
+		Maintenance::add_hooks();
+		Privacy::add_hooks();
+		Routes::add_hooks();
+
+		if ( is_admin() ) {
+			OrderPanel::add_hooks();
+			OrdersList::add_hooks();
+			SettingsPage::add_hooks();
+		}
+
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			WP_CLI::add_command( 'customer-lens', Command::class );
+		}
 	}
 
 	public static function declare_compatibility(): void {
@@ -65,6 +91,10 @@ final class Plugin {
 				)
 			)
 		);
+	}
+
+	public static function capability(): string {
+		return (string) apply_filters( self::CAPABILITY_FILTER, 'manage_woocommerce' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- The constant holds the prefixed hook name.
 	}
 
 	public static function file(): string {

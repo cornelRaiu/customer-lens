@@ -75,16 +75,32 @@ final class OrderSync {
 			}
 		}
 
+		$touched = self::link( $order );
+		Signals::rebuild_many( $touched );
+
+		return $touched[0] ?? 0;
+	}
+
+	/**
+	 * Links the order to its customer without rebuilding signals. Returns the customers it touched (its
+	 * customer first, then the one it had before), or [] when the order cannot be linked.
+	 *
+	 * @return int[]
+	 */
+	public static function link( WC_Order $order ): array {
+		if ( in_array( $order->get_status(), OrderLinks::IGNORED, true ) ) {
+			return [];
+		}
+
 		// Until it has an email, phone, address or user, an order (built in code, say) cannot be linked.
 		$ids = OrderIdentifiers::from_order( $order );
 		if ( ! $ids->user_id && ! $ids->identities() ) {
-			return 0;
+			return [];
 		}
 
-		$result = Resolver::resolve( $order );
-		Signals::rebuild_many( [ $result['customer'], $result['previous'] ] );
+		$result = Resolver::resolve( $order, $ids );
 
-		return $result['customer'];
+		return array_values( array_unique( array_filter( [ $result['customer'], $result['previous'] ] ) ) );
 	}
 
 	public static function status_changed( $order_id, $from, $to, $order ): void {

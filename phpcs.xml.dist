@@ -5,6 +5,7 @@
 	<file>customer-lens.php</file>
 	<file>uninstall.php</file>
 	<file>src</file>
+	<file>templates</file>
 
 	<arg name="extensions" value="php"/>
 	<arg name="parallel" value="8"/>
@@ -37,6 +38,14 @@
 			<property name="prefixes" type="array">
 				<element value="mwtcl"/>
 				<element value="CustomerLens"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.Capabilities">
+		<properties>
+			<property name="custom_capabilities" type="array">
+				<element value="manage_woocommerce"/>
 			</property>
 		</properties>
 	</rule>
