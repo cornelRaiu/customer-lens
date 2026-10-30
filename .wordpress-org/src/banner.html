@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Banner</title>
+<!-- An open font, so that the banner looks the same whichever computer renders it. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+	* { box-sizing: border-box; margin: 0; }
+	html, body { width: 1544px; height: 500px; }
+	body {
+		display: grid;
+		grid-template-columns: 1fr 700px;
+		align-items: center;
+		gap: 32px;
+		padding: 0 88px;
+		overflow: hidden;
+		background: radial-gradient(ellipse 820px 560px at 78% 50%, #4a2a7a 0%, rgba(74, 42, 122, 0) 72%), #24133b;
+		color: #fff;
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+	.logo { display: block; width: 92px; height: 92px; margin-bottom: 30px; }
+	h1 { font-size: 72px; line-height: 1.04; font-weight: 700; letter-spacing: -1px; }
+	p.tagline { margin-top: 22px; font-size: 28px; line-height: 1.35; color: #d6c8ee; white-space: nowrap; }
+	.panel {
+		overflow: hidden;
+		border-left: 8px solid #a77ee6;
+		border-radius: 20px;
+		background: #fff;
+		color: #24133b;
+		box-shadow: 0 22px 48px rgba(10, 4, 20, 0.55);
+		transform: rotate(-2deg) translateX(16px);
+	}
+	.who { padding: 22px 28px 0; font-size: 22px; color: #5b5470; }
+	.who strong { color: #24133b; font-weight: 600; }
+	.badges { display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 28px 22px; border-bottom: 2px solid #efe9f7; }
+	.badge { padding: 6px 16px; border: 2px solid #d5d0de; border-radius: 999px; background: #f6f4f9; font-size: 20px; font-weight: 500; white-space: nowrap; }
+	.warn { border-color: #e2a72e; background: #fdf6e3; color: #6b4b00; }
+	.rows { padding: 8px 28px 16px; }
+	.row { display: grid; grid-template-columns: 90px 1fr auto; gap: 16px; align-items: center; padding: 10px 0; font-size: 20px; border-bottom: 1px solid #f1edf6; }
+	.row:last-child { border-bottom: 0; }
+	.row .id { color: #6b40b8; font-weight: 600; }
+	.row .what { color: #5b5470; }
+	.row .refused { color: #a4262c; font-weight: 600; }
+</style>
+</head>
+<body>
+	<div>
+		<img class="logo" src="../icon.svg" alt="">
+		<h1>Customer Lens</h1>
+		<p class="tagline">Know who you are shipping to.<br>Every order shows the customer's history.</p>
+	</div>
+	<!-- The order screen panel, for a customer who refused two cash-on-delivery parcels. -->
+	<div class="panel">
+		<p class="who"><strong>Ioana Pop</strong> · 3rd order</p>
+		<div class="badges">
+			<span class="badge warn">2 refused COD</span>
+			<span class="badge warn">1 refund (€38)</span>
+			<span class="badge">Last order 42 days ago</span>
+		</div>
+		<div class="rows">
+			<div class="row"><span class="id">#142</span><span class="what">Sep 17 · Completed</span><span>€96</span></div>
+			<div class="row"><span class="id">#124</span><span class="what">Jul 3 · <span class="refused">Refused</span></span><span>€76</span></div>
+			<div class="row"><span class="id">#111</span><span class="what">May 22 · <span class="refused">Refused</span></span><span>€54</span></div>
+		</div>
+	</div>
+</body>
+</html>

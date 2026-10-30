@@ -15,7 +15,7 @@ use CustomerLens\Signals\Signals;
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The plugin's own tables, named by Schema::table().
+// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- The plugin's own tables, named by Schema::table().
 
 /**
  * The nightly job: expires flags, deletes events past the retention period, and checks the orders that
@@ -116,10 +116,13 @@ final class Maintenance {
 			return;
 		}
 
-		$ids = Db::ids( $orphans );
-		$wpdb->query( 'DELETE FROM ' . Schema::table( Schema::CUSTOMER_IDENTITIES ) . " WHERE customer_id IN ({$ids})" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- IDs from the query above, cast to integers.
+		// IDs from the query above, cast to integers.
+		$ids     = Db::ids( $orphans );
+		$links   = Schema::table( Schema::CUSTOMER_IDENTITIES );
+		$signals = Schema::table( Schema::SIGNALS );
+		$wpdb->query( "DELETE FROM {$links} WHERE customer_id IN ({$ids})" );
 		$wpdb->query( "DELETE FROM {$events} WHERE customer_id IN ({$ids})" );
-		$wpdb->query( 'DELETE FROM ' . Schema::table( Schema::SIGNALS ) . " WHERE customer_id IN ({$ids})" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- IDs from the query above, cast to integers.
+		$wpdb->query( "DELETE FROM {$signals} WHERE customer_id IN ({$ids})" );
 		$wpdb->query( "DELETE FROM {$customers} WHERE id IN ({$ids})" );
 	}
 }

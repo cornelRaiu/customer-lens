@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 final class Plugin {
 
-	public const VERSION = '0.1.0';
+	public const VERSION = '1.0.0';
 	public const MIN_WC  = '8.2';
 
 	/** Filters the capability that can see the panel and act on customers (manage_woocommerce). */
@@ -36,6 +36,8 @@ final class Plugin {
 	}
 
 	public static function init(): void {
+		add_action( 'init', [ self::class, 'load_textdomain' ] );
+
 		if ( ! self::woocommerce_ready() ) {
 			add_action( 'admin_notices', [ self::class, 'woocommerce_notice' ] );
 			return;
@@ -91,6 +93,19 @@ final class Plugin {
 				)
 			)
 		);
+	}
+
+	/**
+	 * Loads a translation bundled in languages/ (Romanian ships with the plugin), but only when WordPress has
+	 * no language pack for it: packs from translate.wordpress.org always win, loaded on demand by WordPress.
+	 */
+	public static function load_textdomain(): void {
+		$locale = determine_locale();
+		$bundle = dirname( self::$file ) . '/languages/customer-lens-' . $locale . '.mo';
+
+		if ( ! is_readable( WP_LANG_DIR . '/plugins/customer-lens-' . $locale . '.mo' ) && is_readable( $bundle ) ) {
+			load_textdomain( 'customer-lens', $bundle, $locale );
+		}
 	}
 
 	public static function capability(): string {

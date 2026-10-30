@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+	<title>Customer Lens</title>
+	<defs>
+		<linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#43246f"/>
+			<stop offset="1" stop-color="#22123a"/>
+		</linearGradient>
+		<clipPath id="lens">
+			<circle cx="108" cy="108" r="54"/>
+		</clipPath>
+	</defs>
+	<rect width="256" height="256" rx="56" fill="url(#tile)"/>
+	<!-- A customer, seen through the lens. -->
+	<g clip-path="url(#lens)" fill="#c9b2f0">
+		<circle cx="108" cy="92" r="20"/>
+		<path d="M64 166c0-26 19.7-44 44-44s44 18 44 44z"/>
+	</g>
+	<circle cx="108" cy="108" r="62" fill="none" stroke="#fff" stroke-width="18"/>
+	<path d="M154 154l46 46" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+	<!-- A count that needs attention. -->
+	<circle cx="166" cy="62" r="26" fill="#f2b33d" stroke="#2f1950" stroke-width="10"/>
+</svg>

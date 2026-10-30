@@ -14,7 +14,7 @@ use CustomerLens\Signals\Signals;
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The plugin's own tables, named by Schema::table().
+// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- The plugin's own tables, named by Schema::table().
 
 /**
  * The personal data exporter and eraser (Tools > Export and Erase Personal Data), and the privacy

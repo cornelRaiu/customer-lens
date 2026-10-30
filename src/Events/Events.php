@@ -7,7 +7,7 @@ use CustomerLens\Install\Schema;
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The plugin's own tables, named by Schema::table().
+// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- The plugin's own tables, named by Schema::table().
 
 /**
  * Everything that happened to a customer, one row each. Signals are derived from these rows.

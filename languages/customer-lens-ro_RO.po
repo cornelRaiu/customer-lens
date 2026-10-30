@@ -1,0 +1,777 @@
+# Romanian translation of Customer Lens.
+# Copyright (C) 2026 Cornel Raiu
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Customer Lens 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/cornelRaiu/customer-lens/issues\n"
+"PO-Revision-Date: 2026-10-30 05:30+0200\n"
+"Last-Translator: Cornel Raiu\n"
+"Language-Team: Romanian\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
+"X-Domain: customer-lens\n"
+
+#. Plugin Name of the plugin
+#: customer-lens.php
+msgid "Customer Lens – Customer History & Risk Signals for WooCommerce"
+msgstr "Customer Lens – Customer History & Risk Signals for WooCommerce"
+
+#. Plugin URI of the plugin
+#: customer-lens.php
+msgid "https://customerlens.app/"
+msgstr "https://customerlens.app/"
+
+#. Description of the plugin
+#: customer-lens.php
+msgid "Shows each customer's previous orders and risk signals on the WooCommerce order screen: refunds, cancellations, failed payments and refused deliveries, matched by email, phone and address."
+msgstr "Arată comenzile anterioare ale fiecărui client și semnalele de risc pe ecranul comenzii WooCommerce: rambursări, anulări, plăți eșuate și colete refuzate, regăsite după e-mail, telefon și adresă."
+
+#. Author of the plugin
+#: customer-lens.php
+msgid "Cornel Raiu"
+msgstr "Cornel Raiu"
+
+#. Author URI of the plugin
+#: customer-lens.php
+msgid "https://www.cornelraiu.com/"
+msgstr "https://www.cornelraiu.com/"
+
+#: customer-lens.php:44
+msgid "Customer Lens needs PHP 8.1 or later and WordPress 6.4 or later, so it is not running. Update PHP or WordPress to use it."
+msgstr "Customer Lens are nevoie de PHP 8.1 sau mai nou și WordPress 6.4 sau mai nou, așa că nu rulează. Actualizați PHP sau WordPress ca să îl folosiți."
+
+#: customer-lens.php:45
+msgid "Customer Lens is missing its vendor folders, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
+msgstr "Lui Customer Lens îi lipsesc folderele vendor, așa că nu rulează. Rulați composer install sau reinstalați modulul de pe WordPress.org."
+
+#: src/Admin/OrderPanel.php:30
+#: src/Admin/OrdersList.php:70
+#: src/Admin/OrdersList.php:74
+#: src/Admin/OrdersList.php:191
+#: src/Admin/SettingsPage.php:32
+#: src/Privacy/Privacy.php:36
+#: src/Privacy/Privacy.php:46
+#: src/Privacy/Privacy.php:114
+#: src/Privacy/Privacy.php:204
+#: templates/panel.php:248
+msgid "Customer Lens"
+msgstr "Customer Lens"
+
+#: src/Admin/OrderPanel.php:70
+msgid "Count a refused delivery for this order?"
+msgstr "Înregistrați un colet refuzat pentru această comandă?"
+
+#: src/Admin/OrderPanel.php:71
+msgid "Take back the refused delivery of this order?"
+msgstr "Anulați coletul refuzat înregistrat pentru această comandă?"
+
+#: src/Admin/OrderPanel.php:72
+msgid "Merge the other customer into this one? Their orders, identities and notes move here. You can undo it for 30 days."
+msgstr "Uniți celălalt client cu acesta? Comenzile, datele de identificare și notițele lui se mută aici. Puteți reveni timp de 30 de zile."
+
+#: src/Admin/OrderPanel.php:73
+msgid "Split the merged customer back out?"
+msgstr "Separați din nou clientul unit?"
+
+#: src/Admin/OrderPanel.php:74
+msgid "Delete this note?"
+msgstr "Ștergeți această notiță?"
+
+#: src/Admin/OrderPanel.php:75
+msgid "Remove the flag?"
+msgstr "Eliminați marcajul?"
+
+#: src/Admin/OrderPanel.php:76
+msgid "Customer Lens could not do that. Reload the page and try again."
+msgstr "Customer Lens nu a putut face asta. Reîncărcați pagina și încercați din nou."
+
+#: src/Admin/OrdersList.php:53
+msgid "Has refused deliveries"
+msgstr "Cu colete refuzate"
+
+#: src/Admin/OrdersList.php:54
+msgid "Has refunds"
+msgstr "Cu rambursări"
+
+#: src/Admin/OrdersList.php:55
+#: src/Signals/Badges.php:53
+msgid "Flagged: watch"
+msgstr "Marcat: atenție"
+
+#: src/Admin/OrdersList.php:56
+msgid "First-time customers"
+msgstr "Clienți noi"
+
+#: src/Admin/OrdersList.php:90
+msgid "Not indexed yet"
+msgstr "Neindexată încă"
+
+#: src/Admin/OrdersList.php:189
+msgid "Filter by Customer Lens signals"
+msgstr "Filtrați după semnalele Customer Lens"
+
+#: src/Admin/Panel.php:134
+msgid "A former user"
+msgstr "Un fost utilizator"
+
+#. translators: Short date format, see https://www.php.net/manual/datetime.format.php
+#: src/Admin/Panel.php:147
+msgid "M j, Y"
+msgstr "j M Y"
+
+#: src/Admin/Panel.php:158
+msgid "Marked as trusted."
+msgstr "Marcat ca de încredere."
+
+#: src/Admin/Panel.php:158
+msgid "Flagged: watch."
+msgstr "Marcat: atenție."
+
+#: src/Admin/Panel.php:161
+msgid "The flag expired."
+msgstr "Marcajul a expirat."
+
+#: src/Admin/Panel.php:161
+msgid "Flag removed."
+msgstr "Marcaj eliminat."
+
+#. translators: %s: order number.
+#: src/Admin/Panel.php:164
+#, php-format
+msgid "Refused delivery of order #%s."
+msgstr "Colet refuzat pentru comanda #%s."
+
+#. translators: %s: customer number.
+#: src/Admin/Panel.php:167
+#, php-format
+msgid "Merged customer #%s into this one."
+msgstr "Clientul #%s a fost unit cu acesta."
+
+#. translators: %s: customer number.
+#: src/Admin/Panel.php:170
+#, php-format
+msgid "Split customer #%s back out."
+msgstr "Clientul #%s a fost separat din nou."
+
+#: src/Admin/Panel.php:179
+#: src/Admin/Panel.php:192
+msgid "email"
+msgstr "e-mail"
+
+#: src/Admin/Panel.php:180
+#: src/Admin/Panel.php:193
+msgid "phone"
+msgstr "telefon"
+
+#: src/Admin/Panel.php:181
+#: src/Admin/Panel.php:194
+msgid "address"
+msgstr "adresă"
+
+#: src/Admin/Panel.php:182
+msgid "account"
+msgstr "cont"
+
+#. translators: %s: what two customers have in common, such as "phone" or "email, phone".
+#: src/Admin/Panel.php:187
+#, php-format
+msgid "same %s"
+msgstr "același %s"
+
+#: src/Admin/SettingsPage.php:33
+#: src/Admin/SettingsPage.php:93
+msgid "Customer Lens settings"
+msgstr "Setări Customer Lens"
+
+#: src/Admin/SettingsPage.php:33
+#: src/Admin/SettingsPage.php:61
+msgid "Settings"
+msgstr "Setări"
+
+#: src/Admin/SettingsPage.php:72
+msgid "You are not allowed to do that."
+msgstr "Nu aveți permisiunea să faceți asta."
+
+#: src/Admin/SettingsPage.php:95
+msgid "Settings sections"
+msgstr "Secțiunile setărilor"
+
+#: src/Admin/SettingsPage.php:96
+msgid "General"
+msgstr "General"
+
+#: src/Admin/SettingsPage.php:97
+msgid "Privacy"
+msgstr "Confidențialitate"
+
+#: src/Admin/SettingsPage.php:106
+msgid "Badges"
+msgstr "Etichete"
+
+#: src/Admin/SettingsPage.php:107
+msgid "Every signal is a count. A count turns into a yellow warning, or a red critical badge, from the number you set here. 0 keeps that badge grey."
+msgstr "Fiecare semnal este un număr. De la valoarea setată aici, numărul devine o etichetă galbenă de avertizare sau una roșie, critică. 0 lasă eticheta gri."
+
+#: src/Admin/SettingsPage.php:110
+msgid "Refunds"
+msgstr "Rambursări"
+
+#: src/Admin/SettingsPage.php:110
+#: src/Admin/SettingsPage.php:114
+#: src/Admin/SettingsPage.php:119
+#: src/Admin/SettingsPage.php:120
+msgid "warning from"
+msgstr "avertizare de la"
+
+#: src/Admin/SettingsPage.php:112
+msgid "Refused deliveries"
+msgstr "Colete refuzate"
+
+#: src/Admin/SettingsPage.php:115
+#: src/Admin/SettingsPage.php:121
+msgid "critical from"
+msgstr "critic de la"
+
+#: src/Admin/SettingsPage.php:119
+msgid "Cancelled orders"
+msgstr "Comenzi anulate"
+
+#: src/Admin/SettingsPage.php:120
+msgid "Failed payments"
+msgstr "Plăți eșuate"
+
+#: src/Admin/SettingsPage.php:121
+msgid "Chargebacks"
+msgstr "Chargebackuri"
+
+#: src/Admin/SettingsPage.php:124
+msgid "First orders"
+msgstr "Prima comandă"
+
+#: src/Admin/SettingsPage.php:127
+msgid "Show \"First order\" as a warning"
+msgstr "Afișează „Prima comandă” ca avertizare"
+
+#: src/Admin/SettingsPage.php:128
+msgid "Useful when first-time cash-on-delivery orders are the ones that get refused."
+msgstr "Util când tocmai comenzile ramburs ale clienților noi sunt cele refuzate."
+
+#: src/Admin/SettingsPage.php:133
+msgid "History"
+msgstr "Istoric"
+
+#: src/Admin/SettingsPage.php:136
+msgid "Keep events for"
+msgstr "Păstrează evenimentele"
+
+#: src/Admin/SettingsPage.php:139
+msgid "months"
+msgstr "luni"
+
+#: src/Admin/SettingsPage.php:140
+msgid "Refunds, refused deliveries and other events older than this are deleted every night, and stop counting. Notes stay until the customer asks for erasure."
+msgstr "Rambursările, coletele refuzate și celelalte evenimente mai vechi de atât sunt șterse în fiecare noapte și nu mai sunt numărate. Notițele rămân până când clientul cere ștergerea datelor."
+
+#: src/Admin/SettingsPage.php:145
+msgid "Privacy policy"
+msgstr "Politica de confidențialitate"
+
+#: src/Admin/SettingsPage.php:146
+msgid "Customer Lens processes data your store already holds, for fulfilment and fraud prevention. Add a paragraph like this one to your privacy policy. It is also suggested under Settings > Privacy > Policy Guide."
+msgstr "Customer Lens prelucrează date pe care magazinul le deține deja, pentru onorarea comenzilor și prevenirea fraudei. Adăugați un paragraf ca acesta în politica de confidențialitate. Este sugerat și în Setări > Confidențialitate > Ghid pentru politică."
+
+#: src/Admin/SettingsPage.php:151
+msgid "Copied"
+msgstr "Copiat"
+
+#: src/Admin/SettingsPage.php:151
+msgid "Copy"
+msgstr "Copiază"
+
+#: src/Admin/SettingsPage.php:155
+msgid "Uninstall"
+msgstr "Dezinstalare"
+
+#: src/Admin/SettingsPage.php:158
+msgid "Data"
+msgstr "Date"
+
+#: src/Admin/SettingsPage.php:161
+msgid "Remove all Customer Lens data when the plugin is deleted"
+msgstr "Șterge toate datele Customer Lens când modulul este șters"
+
+#: src/Admin/SettingsPage.php:162
+msgid "Off by default, because flags, notes and refused deliveries cannot be rebuilt from your orders."
+msgstr "Dezactivat implicit, pentru că marcajele, notițele și coletele refuzate nu pot fi reconstituite din comenzi."
+
+#: src/Admin/SettingsPage.php:181
+msgid "Order index"
+msgstr "Indexul comenzilor"
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: src/Admin/SettingsPage.php:186
+#, php-format
+msgid "Indexing past orders: %1$s of %2$s."
+msgstr "Se indexează comenzile anterioare: %1$s din %2$s."
+
+#: src/Admin/SettingsPage.php:188
+msgid "There were no past orders to index. New orders are indexed as they come in."
+msgstr "Nu au existat comenzi anterioare de indexat. Comenzile noi sunt indexate pe măsură ce sosesc."
+
+#. translators: 1: number of orders, 2: date.
+#: src/Admin/SettingsPage.php:191
+#, php-format
+msgid "All %1$s past orders were indexed on %2$s. New orders are indexed as they come in."
+msgstr "Toate cele %1$s comenzi anterioare au fost indexate pe %2$s. Comenzile noi sunt indexate pe măsură ce sosesc."
+
+#: src/Admin/SettingsPage.php:193
+msgid "Past orders have not been indexed yet."
+msgstr "Comenzile anterioare nu au fost indexate încă."
+
+#: src/Admin/SettingsPage.php:200
+msgid "Indexing again goes through every order, newest first, in the background. Flags, notes and merges are kept."
+msgstr "Reindexarea parcurge toate comenzile, de la cea mai nouă, în fundal. Marcajele, notițele și unirile se păstrează."
+
+#: src/Admin/SettingsPage.php:201
+msgid "Index all orders again"
+msgstr "Reindexează toate comenzile"
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: src/Import/Importer.php:202
+#, php-format
+msgid "Customer Lens is indexing your orders: %1$s of %2$s. Until it finishes, order screens show part of each customer's history."
+msgstr "Customer Lens indexează comenzile: %1$s din %2$s. Până termină, ecranele comenzilor arată doar o parte din istoricul fiecărui client."
+
+#. translators: %s: minimum WooCommerce version, such as 8.2.
+#: src/Plugin.php:89
+#, php-format
+msgid "Customer Lens needs WooCommerce %s or later, active on this site, so it is not running."
+msgstr "Customer Lens are nevoie de WooCommerce %s sau mai nou, activ pe acest site, așa că nu rulează."
+
+#: src/Privacy/Privacy.php:95
+msgid "Customer number"
+msgstr "Număr client"
+
+#: src/Privacy/Privacy.php:107
+#: templates/panel.php:44
+msgid "Flag"
+msgstr "Marchează"
+
+#: src/Privacy/Privacy.php:108
+#: templates/panel.php:282
+msgid "Watch"
+msgstr "Atenție"
+
+#: src/Privacy/Privacy.php:108
+#: src/Signals/Badges.php:55
+#: templates/panel.php:286
+msgid "Trusted"
+msgstr "De încredere"
+
+#: src/Privacy/Privacy.php:122
+msgid "Customer Lens history"
+msgstr "Istoric Customer Lens"
+
+#. translators: %s: number of months.
+#: src/Privacy/Privacy.php:197
+#, php-format
+msgid "When you place an order, we keep a record of your earlier orders with us, matched by your email address, phone number and delivery address, together with their refunds, cancellations, failed payments and refused deliveries. Our staff use this record, only within our own systems, to prepare and confirm orders and to prevent fraud and repeatedly refused cash-on-delivery parcels. This is our legitimate interest under article 6(1)(f) of the GDPR. We keep these records for %s months and do not share them with anyone. You can ask us for a copy of this data, or for its erasure, at any time."
+msgstr "Când plasați o comandă, păstrăm o evidență a comenzilor dumneavoastră anterioare la noi, regăsite după adresa de e-mail, numărul de telefon și adresa de livrare, împreună cu rambursările, anulările, plățile eșuate și coletele refuzate aferente. Personalul nostru folosește această evidență, exclusiv în sistemele noastre, pentru a pregăti și confirma comenzile și pentru a preveni frauda și coletele cu plata ramburs refuzate în mod repetat. Acesta este interesul nostru legitim, conform articolului 6 alineatul (1) litera (f) din GDPR. Păstrăm aceste evidențe timp de %s luni și nu le transmitem nimănui. Ne puteți cere oricând o copie a acestor date sau ștergerea lor."
+
+#: src/Privacy/Privacy.php:226
+msgid "Event"
+msgstr "Eveniment"
+
+#: src/Privacy/Privacy.php:230
+#: templates/panel.php:166
+msgid "Date"
+msgstr "Data"
+
+#: src/Privacy/Privacy.php:237
+#: templates/panel.php:165
+msgid "Order"
+msgstr "Comanda"
+
+#: src/Privacy/Privacy.php:243
+msgid "Amount"
+msgstr "Suma"
+
+#: src/Privacy/Privacy.php:249
+msgid "Note"
+msgstr "Notiță"
+
+#: src/Privacy/Privacy.php:264
+msgid "Email"
+msgstr "E-mail"
+
+#: src/Privacy/Privacy.php:267
+msgid "Phone"
+msgstr "Telefon"
+
+#: src/Privacy/Privacy.php:267
+msgid "Address"
+msgstr "Adresă"
+
+#: src/Rest/Routes.php:122
+msgid "This order has no customer to count it for yet."
+msgstr "Această comandă nu are încă un client căruia să îi fie atribuită."
+
+#: src/Rest/Routes.php:140
+msgid "That customer does not exist."
+msgstr "Clientul nu există."
+
+#: src/Rest/Routes.php:158
+msgid "Write the note first."
+msgstr "Scrieți mai întâi notița."
+
+#: src/Rest/Routes.php:167
+msgid "Only the author of a note or an administrator can delete it."
+msgstr "Doar autorul notiței sau un administrator o poate șterge."
+
+#: src/Rest/Routes.php:176
+msgid "Those customers cannot be merged."
+msgstr "Acești clienți nu pot fi uniți."
+
+#: src/Rest/Routes.php:195
+msgid "That merge can no longer be undone."
+msgstr "Această unire nu mai poate fi anulată."
+
+#: src/Rest/Routes.php:219
+msgid "That order does not exist."
+msgstr "Comanda nu există."
+
+#. translators: %s: number of refused cash-on-delivery parcels.
+#: src/Signals/Badges.php:48
+#, php-format
+msgid "%s refused COD"
+msgid_plural "%s refused COD"
+msgstr[0] "%s colet refuzat"
+msgstr[1] "%s colete refuzate"
+msgstr[2] "%s de colete refuzate"
+
+#. translators: 1: number of refunds, 2: refunded amount, such as €38.
+#: src/Signals/Badges.php:62
+#, php-format
+msgid "%1$s refund (%2$s)"
+msgid_plural "%1$s refunds (%2$s)"
+msgstr[0] "%1$s rambursare (%2$s)"
+msgstr[1] "%1$s rambursări (%2$s)"
+msgstr[2] "%1$s de rambursări (%2$s)"
+
+#. translators: %s: number of refunds.
+#: src/Signals/Badges.php:64
+#, php-format
+msgid "%s refund"
+msgid_plural "%s refunds"
+msgstr[0] "%s rambursare"
+msgstr[1] "%s rambursări"
+msgstr[2] "%s de rambursări"
+
+#. translators: %s: number of cancelled orders.
+#: src/Signals/Badges.php:71
+#, php-format
+msgid "%s cancelled"
+msgid_plural "%s cancelled"
+msgstr[0] "%s comandă anulată"
+msgstr[1] "%s comenzi anulate"
+msgstr[2] "%s de comenzi anulate"
+
+#. translators: %s: number of failed payments.
+#: src/Signals/Badges.php:78
+#, php-format
+msgid "%s failed payment"
+msgid_plural "%s failed payments"
+msgstr[0] "%s plată eșuată"
+msgstr[1] "%s plăți eșuate"
+msgstr[2] "%s de plăți eșuate"
+
+#. translators: %s: number of chargebacks.
+#: src/Signals/Badges.php:85
+#, php-format
+msgid "%s chargeback"
+msgid_plural "%s chargebacks"
+msgstr[0] "%s chargeback"
+msgstr[1] "%s chargebackuri"
+msgstr[2] "%s de chargebackuri"
+
+#. translators: %s: number of days.
+#: src/Signals/Badges.php:92
+msgid "Last order today"
+msgstr "Ultima comandă azi"
+
+#. translators: %s: number of days.
+#: src/Signals/Badges.php:92
+#, php-format
+msgid "Last order %s day ago"
+msgid_plural "Last order %s days ago"
+msgstr[0] "Ultima comandă acum %s zi"
+msgstr[1] "Ultima comandă acum %s zile"
+msgstr[2] "Ultima comandă acum %s de zile"
+
+#. translators: %s: amount, such as €174.
+#: src/Signals/Badges.php:98
+#, php-format
+msgid "%s net lifetime"
+msgstr "%s net în total"
+
+#: src/Signals/Badges.php:122
+msgid "First order"
+msgstr "Prima comandă"
+
+#. translators: %s: ordinal number ending in 1, such as 21. Used as "21st order".
+#: src/Signals/Badges.php:131
+#, php-format
+msgid "%sst order"
+msgstr "a %s-a comandă"
+
+#. translators: %s: ordinal number ending in 2, such as 2. Used as "2nd order".
+#: src/Signals/Badges.php:134
+#, php-format
+msgid "%snd order"
+msgstr "a %s-a comandă"
+
+#. translators: %s: ordinal number ending in 3, such as 3. Used as "3rd order".
+#: src/Signals/Badges.php:137
+#, php-format
+msgid "%srd order"
+msgstr "a %s-a comandă"
+
+#. translators: %s: ordinal number, such as 4. Used as "4th order".
+#: src/Signals/Badges.php:140
+#, php-format
+msgid "%sth order"
+msgstr "a %s-a comandă"
+
+#: templates/panel.php:22
+msgid "The customer's history appears once the order has an email address, phone number or delivery address."
+msgstr "Istoricul clientului apare după ce comanda are o adresă de e-mail, un număr de telefon sau o adresă de livrare."
+
+#. translators: 1: customer name, 2: customer number.
+#: templates/panel.php:36
+#, php-format
+msgid "%1$s · customer #%2$s"
+msgstr "%1$s · client #%2$s"
+
+#: templates/panel.php:37
+msgid "Guest"
+msgstr "Vizitator"
+
+#: templates/panel.php:44
+msgid "Edit flag"
+msgstr "Modifică marcajul"
+
+#: templates/panel.php:46
+msgid "Undo refused delivery"
+msgstr "Anulează coletul refuzat"
+
+#: templates/panel.php:48
+msgid "Mark refused delivery"
+msgstr "Marchează colet refuzat"
+
+#: templates/panel.php:50
+#: templates/panel.php:241
+msgid "Add note"
+msgstr "Adaugă notiță"
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: templates/panel.php:60
+#, php-format
+msgid "Indexing past orders: %1$s of %2$s. This history may still be incomplete."
+msgstr "Se indexează comenzile anterioare: %1$s din %2$s. Istoricul poate fi încă incomplet."
+
+#: templates/panel.php:69
+msgid "Signals"
+msgstr "Semnale"
+
+#. translators: 1: user name, 2: date.
+#: templates/panel.php:81
+#, php-format
+msgid "Marked as trusted by %1$s on %2$s."
+msgstr "Marcat ca de încredere de %1$s pe %2$s."
+
+#. translators: 1: user name, 2: date.
+#: templates/panel.php:83
+#, php-format
+msgid "Flagged (watch) by %1$s on %2$s."
+msgstr "Marcat (atenție) de %1$s pe %2$s."
+
+#. translators: %s: date.
+#: templates/panel.php:89
+#, php-format
+msgid "Expires %s."
+msgstr "Expiră pe %s."
+
+#. translators: 1: customer number, 2: what they have in common, such as "same phone".
+#: templates/panel.php:104
+#, php-format
+msgid "May be the same person as customer #%1$s (%2$s)."
+msgstr "Poate fi aceeași persoană cu clientul #%1$s (%2$s)."
+
+#: templates/panel.php:111
+msgid "Merge"
+msgstr "Unește"
+
+#: templates/panel.php:112
+msgid "Dismiss"
+msgstr "Ignoră"
+
+#. translators: 1: customer number, 2: date.
+#: templates/panel.php:123
+#, php-format
+msgid "Customer #%1$s was merged into this one on %2$s."
+msgstr "Clientul #%1$s a fost unit cu acesta pe %2$s."
+
+#: templates/panel.php:130
+msgid "Undo merge"
+msgstr "Anulează unirea"
+
+#. translators: %s: number of orders.
+#: templates/panel.php:140
+#, php-format
+msgid "Previous orders (%s)"
+msgstr "Comenzi anterioare (%s)"
+
+#. translators: %s: number of orders.
+#: templates/panel.php:148
+#, php-format
+msgid "All (%s)"
+msgstr "Toate (%s)"
+
+#: templates/panel.php:159
+msgid "This is the customer's first order with you."
+msgstr "Este prima comandă a clientului la dumneavoastră."
+
+#: templates/panel.php:167
+msgid "Status"
+msgstr "Stare"
+
+#: templates/panel.php:168
+msgid "Total"
+msgstr "Total"
+
+#: templates/panel.php:169
+msgid "Delivery"
+msgstr "Livrare"
+
+#: templates/panel.php:170
+msgid "Matched by"
+msgstr "Regăsită după"
+
+#: templates/panel.php:180
+msgid "refused"
+msgstr "refuzat"
+
+#. translators: 1: first order shown, 2: last order shown, 3: number of orders.
+#: templates/panel.php:206
+#, php-format
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr "Se afișează %1$s–%2$s din %3$s"
+
+#: templates/panel.php:211
+msgid "Previous page"
+msgstr "Pagina anterioară"
+
+#. translators: 1: page number, 2: number of pages.
+#: templates/panel.php:214
+#, php-format
+msgid "Page %1$s of %2$s"
+msgstr "Pagina %1$s din %2$s"
+
+#: templates/panel.php:216
+msgid "Next page"
+msgstr "Pagina următoare"
+
+#: templates/panel.php:225
+msgid "Identities"
+msgstr "Date de identificare"
+
+#: templates/panel.php:231
+msgid "shared identifier"
+msgstr "identificator comun"
+
+#: templates/panel.php:237
+msgid "Notes and activity"
+msgstr "Notițe și activitate"
+
+#: templates/panel.php:239
+msgid "Note about this customer"
+msgstr "Notiță despre acest client"
+
+#: templates/panel.php:240
+msgid "A note for everyone who handles this customer…"
+msgstr "O notiță pentru toți cei care lucrează cu acest client…"
+
+#: templates/panel.php:254
+msgid "Delete"
+msgstr "Șterge"
+
+#. translators: %s: number of months.
+#: templates/panel.php:264
+#, php-format
+msgid "Events kept %s months."
+msgstr "Evenimente păstrate %s luni."
+
+#. translators: %s: customer name.
+#: templates/panel.php:275
+#, php-format
+msgid "Flag %s"
+msgstr "Marchează pe %s"
+
+#. translators: %s: customer name.
+#: templates/panel.php:275
+msgid "this customer"
+msgstr "acest client"
+
+#: templates/panel.php:279
+msgid "What should staff know on the next order?"
+msgstr "Ce trebuie să știe echipa la următoarea comandă?"
+
+#: templates/panel.php:282
+msgid "Staff see a warning on every order from this customer. Checkout does not change."
+msgstr "Echipa vede o avertizare la fiecare comandă a acestui client. Finalizarea comenzii nu se schimbă."
+
+#: templates/panel.php:286
+msgid "A known good customer: shown in green, whatever the counts say."
+msgstr "Un client bun, cunoscut: apare cu verde, orice ar arăta numerele."
+
+#: templates/panel.php:291
+msgid "Reason (staff only)"
+msgstr "Motiv (doar pentru echipă)"
+
+#: templates/panel.php:295
+msgid "Expires"
+msgstr "Expiră"
+
+#. translators: %s: number of days.
+#: templates/panel.php:301
+msgid "Never"
+msgstr "Niciodată"
+
+#. translators: %s: number of days.
+#: templates/panel.php:301
+#, php-format
+msgid "In %s day"
+msgid_plural "In %s days"
+msgstr[0] "Peste %s zi"
+msgstr[1] "Peste %s zile"
+msgstr[2] "Peste %s de zile"
+
+#: templates/panel.php:308
+msgid "The customer is never told about a flag."
+msgstr "Clientul nu este anunțat niciodată despre un marcaj."
+
+#: templates/panel.php:311
+msgid "Remove flag"
+msgstr "Elimină marcajul"
+
+#: templates/panel.php:313
+msgid "Cancel"
+msgstr "Renunță"
+
+#: templates/panel.php:314
+msgid "Save flag"
+msgstr "Salvează marcajul"

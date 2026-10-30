@@ -10,7 +10,7 @@ use CustomerLens\Signals\Signals;
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The plugin's own tables, named by Schema::table().
+// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- The plugin's own tables, named by Schema::table().
 
 /**
  * Merges two customers that staff confirmed are one person, and undoes it within UNDO_DAYS.

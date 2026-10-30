@@ -9,7 +9,7 @@ use CustomerLens\Orders\OrderLinks;
 
 defined( 'ABSPATH' ) || exit;
 
-// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- The plugin's own tables, named by Schema::table(). Reads are cached in CACHE_GROUP.
+// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- The plugin's own tables, named by Schema::table(). Reads are cached in CACHE_GROUP.
 
 /**
  * The counts staff see, one row per customer, rebuilt from orders and events whenever they change.

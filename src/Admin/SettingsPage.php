@@ -229,16 +229,29 @@ final class SettingsPage {
 		<?php
 	}
 
-	/** @return array<string, string> Locale => policy text in that language. */
+	/**
+	 * The policy text in the site's language and in POLICY_LOCALES. Loads the plugin's own translations
+	 * directly: switch_to_locale() needs WordPress itself installed in that language.
+	 *
+	 * @return array<string, string> Locale => policy text in that language.
+	 */
 	private static function policy_texts(): array {
-		$texts = [];
-		foreach ( array_unique( array_merge( [ determine_locale() ], self::POLICY_LOCALES ) ) as $locale ) {
-			$switched         = switch_to_locale( $locale );
-			$texts[ $locale ] = Privacy::policy_text();
-			if ( $switched ) {
-				restore_previous_locale();
+		$texts = [ determine_locale() => Privacy::policy_text() ];
+
+		foreach ( self::POLICY_LOCALES as $locale ) {
+			if ( isset( $texts[ $locale ] ) ) {
+				continue;
+			}
+
+			unload_textdomain( 'customer-lens', true );
+			$file = dirname( Plugin::file() ) . '/languages/customer-lens-' . $locale . '.mo';
+			if ( 'en_US' === $locale || load_textdomain( 'customer-lens', $file, $locale ) ) {
+				$texts[ $locale ] = Privacy::policy_text();
 			}
 		}
+
+		unload_textdomain( 'customer-lens', true );
+		Plugin::load_textdomain();
 
 		return array_unique( $texts );
 	}

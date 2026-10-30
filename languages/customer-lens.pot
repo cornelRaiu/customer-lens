@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Customer Lens – Customer History & Risk Signals for WooCommerce 0.1.0\n"
+"Project-Id-Version: Customer Lens – Customer History & Risk Signals for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-28T16:10:53+00:00\n"
+"POT-Creation-Date: 2026-10-30T03:21:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: customer-lens\n"
@@ -47,8 +47,722 @@ msgstr ""
 msgid "Customer Lens is missing its vendor folders, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
 msgstr ""
 
+#: src/Admin/OrderPanel.php:30
+#: src/Admin/OrdersList.php:70
+#: src/Admin/OrdersList.php:74
+#: src/Admin/OrdersList.php:191
+#: src/Admin/SettingsPage.php:32
+#: src/Privacy/Privacy.php:36
+#: src/Privacy/Privacy.php:46
+#: src/Privacy/Privacy.php:114
+#: src/Privacy/Privacy.php:204
+#: templates/panel.php:248
+msgid "Customer Lens"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:70
+msgid "Count a refused delivery for this order?"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:71
+msgid "Take back the refused delivery of this order?"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:72
+msgid "Merge the other customer into this one? Their orders, identities and notes move here. You can undo it for 30 days."
+msgstr ""
+
+#: src/Admin/OrderPanel.php:73
+msgid "Split the merged customer back out?"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:74
+msgid "Delete this note?"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:75
+msgid "Remove the flag?"
+msgstr ""
+
+#: src/Admin/OrderPanel.php:76
+msgid "Customer Lens could not do that. Reload the page and try again."
+msgstr ""
+
+#: src/Admin/OrdersList.php:53
+msgid "Has refused deliveries"
+msgstr ""
+
+#: src/Admin/OrdersList.php:54
+msgid "Has refunds"
+msgstr ""
+
+#: src/Admin/OrdersList.php:55
+#: src/Signals/Badges.php:53
+msgid "Flagged: watch"
+msgstr ""
+
+#: src/Admin/OrdersList.php:56
+msgid "First-time customers"
+msgstr ""
+
+#: src/Admin/OrdersList.php:90
+msgid "Not indexed yet"
+msgstr ""
+
+#: src/Admin/OrdersList.php:189
+msgid "Filter by Customer Lens signals"
+msgstr ""
+
+#: src/Admin/Panel.php:134
+msgid "A former user"
+msgstr ""
+
+#. translators: Short date format, see https://www.php.net/manual/datetime.format.php
+#: src/Admin/Panel.php:147
+msgid "M j, Y"
+msgstr ""
+
+#: src/Admin/Panel.php:158
+msgid "Marked as trusted."
+msgstr ""
+
+#: src/Admin/Panel.php:158
+msgid "Flagged: watch."
+msgstr ""
+
+#: src/Admin/Panel.php:161
+msgid "The flag expired."
+msgstr ""
+
+#: src/Admin/Panel.php:161
+msgid "Flag removed."
+msgstr ""
+
+#. translators: %s: order number.
+#: src/Admin/Panel.php:164
+#, php-format
+msgid "Refused delivery of order #%s."
+msgstr ""
+
+#. translators: %s: customer number.
+#: src/Admin/Panel.php:167
+#, php-format
+msgid "Merged customer #%s into this one."
+msgstr ""
+
+#. translators: %s: customer number.
+#: src/Admin/Panel.php:170
+#, php-format
+msgid "Split customer #%s back out."
+msgstr ""
+
+#: src/Admin/Panel.php:179
+#: src/Admin/Panel.php:192
+msgid "email"
+msgstr ""
+
+#: src/Admin/Panel.php:180
+#: src/Admin/Panel.php:193
+msgid "phone"
+msgstr ""
+
+#: src/Admin/Panel.php:181
+#: src/Admin/Panel.php:194
+msgid "address"
+msgstr ""
+
+#: src/Admin/Panel.php:182
+msgid "account"
+msgstr ""
+
+#. translators: %s: what two customers have in common, such as "phone" or "email, phone".
+#: src/Admin/Panel.php:187
+#, php-format
+msgid "same %s"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:33
+#: src/Admin/SettingsPage.php:93
+msgid "Customer Lens settings"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:33
+#: src/Admin/SettingsPage.php:61
+msgid "Settings"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:72
+msgid "You are not allowed to do that."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:95
+msgid "Settings sections"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:96
+msgid "General"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:97
+msgid "Privacy"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:106
+msgid "Badges"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:107
+msgid "Every signal is a count. A count turns into a yellow warning, or a red critical badge, from the number you set here. 0 keeps that badge grey."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:110
+msgid "Refunds"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:110
+#: src/Admin/SettingsPage.php:114
+#: src/Admin/SettingsPage.php:119
+#: src/Admin/SettingsPage.php:120
+msgid "warning from"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:112
+msgid "Refused deliveries"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:115
+#: src/Admin/SettingsPage.php:121
+msgid "critical from"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:119
+msgid "Cancelled orders"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:120
+msgid "Failed payments"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:121
+msgid "Chargebacks"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:124
+msgid "First orders"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:127
+msgid "Show \"First order\" as a warning"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:128
+msgid "Useful when first-time cash-on-delivery orders are the ones that get refused."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:133
+msgid "History"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:136
+msgid "Keep events for"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:139
+msgid "months"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:140
+msgid "Refunds, refused deliveries and other events older than this are deleted every night, and stop counting. Notes stay until the customer asks for erasure."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:145
+msgid "Privacy policy"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:146
+msgid "Customer Lens processes data your store already holds, for fulfilment and fraud prevention. Add a paragraph like this one to your privacy policy. It is also suggested under Settings > Privacy > Policy Guide."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:151
+msgid "Copied"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:151
+msgid "Copy"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:155
+msgid "Uninstall"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:158
+msgid "Data"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:161
+msgid "Remove all Customer Lens data when the plugin is deleted"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:162
+msgid "Off by default, because flags, notes and refused deliveries cannot be rebuilt from your orders."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:181
+msgid "Order index"
+msgstr ""
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: src/Admin/SettingsPage.php:186
+#, php-format
+msgid "Indexing past orders: %1$s of %2$s."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:188
+msgid "There were no past orders to index. New orders are indexed as they come in."
+msgstr ""
+
+#. translators: 1: number of orders, 2: date.
+#: src/Admin/SettingsPage.php:191
+#, php-format
+msgid "All %1$s past orders were indexed on %2$s. New orders are indexed as they come in."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:193
+msgid "Past orders have not been indexed yet."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:200
+msgid "Indexing again goes through every order, newest first, in the background. Flags, notes and merges are kept."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:201
+msgid "Index all orders again"
+msgstr ""
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: src/Import/Importer.php:202
+#, php-format
+msgid "Customer Lens is indexing your orders: %1$s of %2$s. Until it finishes, order screens show part of each customer's history."
+msgstr ""
+
 #. translators: %s: minimum WooCommerce version, such as 8.2.
-#: src/Plugin.php:60
+#: src/Plugin.php:89
 #, php-format
 msgid "Customer Lens needs WooCommerce %s or later, active on this site, so it is not running."
+msgstr ""
+
+#: src/Privacy/Privacy.php:95
+msgid "Customer number"
+msgstr ""
+
+#: src/Privacy/Privacy.php:107
+#: templates/panel.php:44
+msgid "Flag"
+msgstr ""
+
+#: src/Privacy/Privacy.php:108
+#: templates/panel.php:282
+msgid "Watch"
+msgstr ""
+
+#: src/Privacy/Privacy.php:108
+#: src/Signals/Badges.php:55
+#: templates/panel.php:286
+msgid "Trusted"
+msgstr ""
+
+#: src/Privacy/Privacy.php:122
+msgid "Customer Lens history"
+msgstr ""
+
+#. translators: %s: number of months.
+#: src/Privacy/Privacy.php:197
+#, php-format
+msgid "When you place an order, we keep a record of your earlier orders with us, matched by your email address, phone number and delivery address, together with their refunds, cancellations, failed payments and refused deliveries. Our staff use this record, only within our own systems, to prepare and confirm orders and to prevent fraud and repeatedly refused cash-on-delivery parcels. This is our legitimate interest under article 6(1)(f) of the GDPR. We keep these records for %s months and do not share them with anyone. You can ask us for a copy of this data, or for its erasure, at any time."
+msgstr ""
+
+#: src/Privacy/Privacy.php:226
+msgid "Event"
+msgstr ""
+
+#: src/Privacy/Privacy.php:230
+#: templates/panel.php:166
+msgid "Date"
+msgstr ""
+
+#: src/Privacy/Privacy.php:237
+#: templates/panel.php:165
+msgid "Order"
+msgstr ""
+
+#: src/Privacy/Privacy.php:243
+msgid "Amount"
+msgstr ""
+
+#: src/Privacy/Privacy.php:249
+msgid "Note"
+msgstr ""
+
+#: src/Privacy/Privacy.php:264
+msgid "Email"
+msgstr ""
+
+#: src/Privacy/Privacy.php:267
+msgid "Phone"
+msgstr ""
+
+#: src/Privacy/Privacy.php:267
+msgid "Address"
+msgstr ""
+
+#: src/Rest/Routes.php:122
+msgid "This order has no customer to count it for yet."
+msgstr ""
+
+#: src/Rest/Routes.php:140
+msgid "That customer does not exist."
+msgstr ""
+
+#: src/Rest/Routes.php:158
+msgid "Write the note first."
+msgstr ""
+
+#: src/Rest/Routes.php:167
+msgid "Only the author of a note or an administrator can delete it."
+msgstr ""
+
+#: src/Rest/Routes.php:176
+msgid "Those customers cannot be merged."
+msgstr ""
+
+#: src/Rest/Routes.php:195
+msgid "That merge can no longer be undone."
+msgstr ""
+
+#: src/Rest/Routes.php:219
+msgid "That order does not exist."
+msgstr ""
+
+#. translators: %s: number of refused cash-on-delivery parcels.
+#: src/Signals/Badges.php:48
+#, php-format
+msgid "%s refused COD"
+msgid_plural "%s refused COD"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of refunds, 2: refunded amount, such as €38.
+#: src/Signals/Badges.php:62
+#, php-format
+msgid "%1$s refund (%2$s)"
+msgid_plural "%1$s refunds (%2$s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of refunds.
+#: src/Signals/Badges.php:64
+#, php-format
+msgid "%s refund"
+msgid_plural "%s refunds"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of cancelled orders.
+#: src/Signals/Badges.php:71
+#, php-format
+msgid "%s cancelled"
+msgid_plural "%s cancelled"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of failed payments.
+#: src/Signals/Badges.php:78
+#, php-format
+msgid "%s failed payment"
+msgid_plural "%s failed payments"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of chargebacks.
+#: src/Signals/Badges.php:85
+#, php-format
+msgid "%s chargeback"
+msgid_plural "%s chargebacks"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of days.
+#: src/Signals/Badges.php:92
+msgid "Last order today"
+msgstr ""
+
+#. translators: %s: number of days.
+#: src/Signals/Badges.php:92
+#, php-format
+msgid "Last order %s day ago"
+msgid_plural "Last order %s days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: amount, such as €174.
+#: src/Signals/Badges.php:98
+#, php-format
+msgid "%s net lifetime"
+msgstr ""
+
+#: src/Signals/Badges.php:122
+msgid "First order"
+msgstr ""
+
+#. translators: %s: ordinal number ending in 1, such as 21. Used as "21st order".
+#: src/Signals/Badges.php:131
+#, php-format
+msgid "%sst order"
+msgstr ""
+
+#. translators: %s: ordinal number ending in 2, such as 2. Used as "2nd order".
+#: src/Signals/Badges.php:134
+#, php-format
+msgid "%snd order"
+msgstr ""
+
+#. translators: %s: ordinal number ending in 3, such as 3. Used as "3rd order".
+#: src/Signals/Badges.php:137
+#, php-format
+msgid "%srd order"
+msgstr ""
+
+#. translators: %s: ordinal number, such as 4. Used as "4th order".
+#: src/Signals/Badges.php:140
+#, php-format
+msgid "%sth order"
+msgstr ""
+
+#: templates/panel.php:22
+msgid "The customer's history appears once the order has an email address, phone number or delivery address."
+msgstr ""
+
+#. translators: 1: customer name, 2: customer number.
+#: templates/panel.php:36
+#, php-format
+msgid "%1$s · customer #%2$s"
+msgstr ""
+
+#: templates/panel.php:37
+msgid "Guest"
+msgstr ""
+
+#: templates/panel.php:44
+msgid "Edit flag"
+msgstr ""
+
+#: templates/panel.php:46
+msgid "Undo refused delivery"
+msgstr ""
+
+#: templates/panel.php:48
+msgid "Mark refused delivery"
+msgstr ""
+
+#: templates/panel.php:50
+#: templates/panel.php:241
+msgid "Add note"
+msgstr ""
+
+#. translators: 1: orders indexed so far, 2: all orders.
+#: templates/panel.php:60
+#, php-format
+msgid "Indexing past orders: %1$s of %2$s. This history may still be incomplete."
+msgstr ""
+
+#: templates/panel.php:69
+msgid "Signals"
+msgstr ""
+
+#. translators: 1: user name, 2: date.
+#: templates/panel.php:81
+#, php-format
+msgid "Marked as trusted by %1$s on %2$s."
+msgstr ""
+
+#. translators: 1: user name, 2: date.
+#: templates/panel.php:83
+#, php-format
+msgid "Flagged (watch) by %1$s on %2$s."
+msgstr ""
+
+#. translators: %s: date.
+#: templates/panel.php:89
+#, php-format
+msgid "Expires %s."
+msgstr ""
+
+#. translators: 1: customer number, 2: what they have in common, such as "same phone".
+#: templates/panel.php:104
+#, php-format
+msgid "May be the same person as customer #%1$s (%2$s)."
+msgstr ""
+
+#: templates/panel.php:111
+msgid "Merge"
+msgstr ""
+
+#: templates/panel.php:112
+msgid "Dismiss"
+msgstr ""
+
+#. translators: 1: customer number, 2: date.
+#: templates/panel.php:123
+#, php-format
+msgid "Customer #%1$s was merged into this one on %2$s."
+msgstr ""
+
+#: templates/panel.php:130
+msgid "Undo merge"
+msgstr ""
+
+#. translators: %s: number of orders.
+#: templates/panel.php:140
+#, php-format
+msgid "Previous orders (%s)"
+msgstr ""
+
+#. translators: %s: number of orders.
+#: templates/panel.php:148
+#, php-format
+msgid "All (%s)"
+msgstr ""
+
+#: templates/panel.php:159
+msgid "This is the customer's first order with you."
+msgstr ""
+
+#: templates/panel.php:167
+msgid "Status"
+msgstr ""
+
+#: templates/panel.php:168
+msgid "Total"
+msgstr ""
+
+#: templates/panel.php:169
+msgid "Delivery"
+msgstr ""
+
+#: templates/panel.php:170
+msgid "Matched by"
+msgstr ""
+
+#: templates/panel.php:180
+msgid "refused"
+msgstr ""
+
+#. translators: 1: first order shown, 2: last order shown, 3: number of orders.
+#: templates/panel.php:206
+#, php-format
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr ""
+
+#: templates/panel.php:211
+msgid "Previous page"
+msgstr ""
+
+#. translators: 1: page number, 2: number of pages.
+#: templates/panel.php:214
+#, php-format
+msgid "Page %1$s of %2$s"
+msgstr ""
+
+#: templates/panel.php:216
+msgid "Next page"
+msgstr ""
+
+#: templates/panel.php:225
+msgid "Identities"
+msgstr ""
+
+#: templates/panel.php:231
+msgid "shared identifier"
+msgstr ""
+
+#: templates/panel.php:237
+msgid "Notes and activity"
+msgstr ""
+
+#: templates/panel.php:239
+msgid "Note about this customer"
+msgstr ""
+
+#: templates/panel.php:240
+msgid "A note for everyone who handles this customer…"
+msgstr ""
+
+#: templates/panel.php:254
+msgid "Delete"
+msgstr ""
+
+#. translators: %s: number of months.
+#: templates/panel.php:264
+#, php-format
+msgid "Events kept %s months."
+msgstr ""
+
+#. translators: %s: customer name.
+#: templates/panel.php:275
+#, php-format
+msgid "Flag %s"
+msgstr ""
+
+#. translators: %s: customer name.
+#: templates/panel.php:275
+msgid "this customer"
+msgstr ""
+
+#: templates/panel.php:279
+msgid "What should staff know on the next order?"
+msgstr ""
+
+#: templates/panel.php:282
+msgid "Staff see a warning on every order from this customer. Checkout does not change."
+msgstr ""
+
+#: templates/panel.php:286
+msgid "A known good customer: shown in green, whatever the counts say."
+msgstr ""
+
+#: templates/panel.php:291
+msgid "Reason (staff only)"
+msgstr ""
+
+#: templates/panel.php:295
+msgid "Expires"
+msgstr ""
+
+#. translators: %s: number of days.
+#: templates/panel.php:301
+msgid "Never"
+msgstr ""
+
+#. translators: %s: number of days.
+#: templates/panel.php:301
+#, php-format
+msgid "In %s day"
+msgid_plural "In %s days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/panel.php:308
+msgid "The customer is never told about a flag."
+msgstr ""
+
+#: templates/panel.php:311
+msgid "Remove flag"
+msgstr ""
+
+#: templates/panel.php:313
+msgid "Cancel"
+msgstr ""
+
+#: templates/panel.php:314
+msgid "Save flag"
 msgstr ""
