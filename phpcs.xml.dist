@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="Customer Lens">
+	<description>WordPress Coding Standards without the documentation rules, with PSR-4 file names and short array syntax.</description>
+
+	<file>customer-lens.php</file>
+	<file>uninstall.php</file>
+	<file>src</file>
+
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/>
+	<arg name="cache" value=".phpcs-cache"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<config name="testVersion" value="8.1-"/>
+	<config name="minimum_wp_version" value="6.4"/>
+
+	<!-- WordPress-Extra includes WordPress-Core. WordPress-Docs is left out: comments only where the code needs them. -->
+	<rule ref="WordPress-Extra">
+		<!-- Class files use PSR-4 names such as Plugin.php instead of class-plugin.php. -->
+		<exclude name="WordPress.Files.FileName"/>
+		<!-- Short array syntax is the house style; long arrays are disallowed below. -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="customer-lens"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="mwtcl"/>
+				<element value="CustomerLens"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="PHPCompatibilityWP"/>
+</ruleset>

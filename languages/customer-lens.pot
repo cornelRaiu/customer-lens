@@ -1,0 +1,54 @@
+# Copyright (C) 2026 Cornel Raiu
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Customer Lens – Customer History & Risk Signals for WooCommerce 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-28T16:10:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: customer-lens\n"
+
+#. Plugin Name of the plugin
+#: customer-lens.php
+msgid "Customer Lens – Customer History & Risk Signals for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: customer-lens.php
+msgid "https://customerlens.app/"
+msgstr ""
+
+#. Description of the plugin
+#: customer-lens.php
+msgid "Shows each customer's previous orders and risk signals on the WooCommerce order screen: refunds, cancellations, failed payments and refused deliveries, matched by email, phone and address."
+msgstr ""
+
+#. Author of the plugin
+#: customer-lens.php
+msgid "Cornel Raiu"
+msgstr ""
+
+#. Author URI of the plugin
+#: customer-lens.php
+msgid "https://www.cornelraiu.com/"
+msgstr ""
+
+#: customer-lens.php:44
+msgid "Customer Lens needs PHP 8.1 or later and WordPress 6.4 or later, so it is not running. Update PHP or WordPress to use it."
+msgstr ""
+
+#: customer-lens.php:45
+msgid "Customer Lens is missing its vendor folders, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
+msgstr ""
+
+#. translators: %s: minimum WooCommerce version, such as 8.2.
+#: src/Plugin.php:60
+#, php-format
+msgid "Customer Lens needs WooCommerce %s or later, active on this site, so it is not running."
+msgstr ""

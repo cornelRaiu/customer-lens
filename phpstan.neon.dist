@@ -1,0 +1,21 @@
+parameters:
+	level: 5
+	phpVersion:
+		min: 80100
+		max: 80599
+	paths:
+		- customer-lens.php
+		- uninstall.php
+		- src
+	scanFiles:
+		- vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+	scanDirectories:
+		- vendor-prefixed
+	# The WooCommerce stubs define WC_VERSION as '0.0.0'.
+	dynamicConstantNames:
+		- WC_VERSION
+	ignoreErrors:
+		# The requirements check exists for sites running PHP below the supported minimum.
+		-
+			identifier: booleanOr.leftAlwaysFalse
+			path: customer-lens.php

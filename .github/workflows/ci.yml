@@ -1,0 +1,129 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint and static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - run: composer install --no-interaction --no-progress
+
+      - name: PHP coding standards
+        run: composer lint
+
+      - name: Identifiers come from constants
+        run: composer check:names
+
+      - name: PHPStan
+        run: composer analyse
+
+  test:
+    name: PHP ${{ matrix.php }} / WP ${{ matrix.wp }} / WC ${{ matrix.wc }} / HPOS ${{ matrix.hpos }}${{ matrix.multisite && ' / multisite' || '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.1'
+            wp: '6.4'
+            wc: '8.2.0'
+            hpos: '1'
+          - php: '8.1'
+            wp: '6.4'
+            wc: '8.2.0'
+            hpos: '0'
+          - php: '8.4'
+            wp: latest
+            wc: latest
+            hpos: '1'
+          - php: '8.4'
+            wp: latest
+            wc: latest
+            hpos: '0'
+          - php: '8.4'
+            wp: latest
+            wc: latest
+            hpos: '1'
+            multisite: '1'
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mwtcl_tests
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    env:
+      WP_TESTS_DB_HOST: 127.0.0.1:3306
+      WP_TESTS_DB_PASSWORD: root
+      WP_MULTISITE: ${{ matrix.multisite }}
+      MWTCL_TESTS_HPOS: ${{ matrix.hpos }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          extensions: mysqli
+
+      - run: composer install --no-interaction --no-progress
+
+      - name: Switch to WordPress ${{ matrix.wp }}
+        if: matrix.wp != 'latest'
+        run: >-
+          composer require --dev --no-interaction --no-progress --update-with-dependencies
+          "roots/wordpress-no-content:${{ matrix.wp }}.*"
+          "wp-phpunit/wp-phpunit:${{ matrix.wp }}.*"
+
+      - name: Install WooCommerce ${{ matrix.wc }}
+        run: bin/install-woocommerce.sh ${{ matrix.wc }}
+
+      - name: PHPUnit
+        run: composer test
+
+  plugin-check:
+    name: Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - run: composer install --no-interaction --no-progress
+
+      - name: Build release folder
+        run: bin/build-zip.sh
+
+      - uses: wordpress/plugin-check-action@v1
+        with:
+          build-dir: dist/customer-lens
+          slug: customer-lens
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: customer-lens
+          path: dist/customer-lens.zip

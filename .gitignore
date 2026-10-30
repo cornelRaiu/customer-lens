@@ -7,3 +7,4 @@
 .phpcs-cache
 .idea/
 .DS_Store
+/tests/php/plugins/

@@ -1,0 +1,89 @@
+{
+    "name": "cornelraiu/customer-lens",
+    "description": "WordPress plugin: customer history and risk signals on the WooCommerce order screen.",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Cornel Raiu",
+            "homepage": "https://www.cornelraiu.com/"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "giggsey/libphonenumber-for-php-lite": "^9.0"
+    },
+    "require-dev": {
+        "brianhenryie/strauss": "^0.31",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "php-stubs/woocommerce-stubs": "^11.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^9.6",
+        "roots/wordpress-no-content": "^7.1",
+        "szepeviktor/phpstan-wordpress": "^2.0",
+        "wp-coding-standards/wpcs": "^3.1",
+        "wp-phpunit/wp-phpunit": "^7.1",
+        "yoast/phpunit-polyfills": "^2.0 || ^3.0 || ^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CustomerLens\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CustomerLens\\Tests\\": "tests/php/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        },
+        "platform": {
+            "php": "8.1.0"
+        },
+        "platform-check": false,
+        "sort-packages": true
+    },
+    "extra": {
+        "strauss": {
+            "target_directory": "vendor-prefixed",
+            "namespace_prefix": "CustomerLens\\Vendor\\",
+            "classmap_prefix": "CustomerLens_Vendor_",
+            "constant_prefix": "MWTCL_VENDOR_",
+            "packages": [
+                "giggsey/libphonenumber-for-php-lite"
+            ],
+            "delete_vendor_packages": true
+        }
+    },
+    "scripts": {
+        "prefix-namespaces": [
+            "strauss",
+            "@composer dump-autoload"
+        ],
+        "post-install-cmd": [
+            "@prefix-namespaces"
+        ],
+        "post-update-cmd": [
+            "@prefix-namespaces"
+        ],
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "analyse": "phpstan analyse --memory-limit=2G",
+        "check:names": "@php bin/check-identifiers.php",
+        "test": [
+            "@putenv XDEBUG_MODE=off",
+            "phpunit"
+        ],
+        "ci": [
+            "@lint",
+            "@check:names",
+            "@analyse",
+            "@test"
+        ]
+    }
+}
