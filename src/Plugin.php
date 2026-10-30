@@ -4,6 +4,7 @@ namespace CustomerLens;
 
 use Automattic\WooCommerce\Utilities\FeaturesUtil;
 use CustomerLens\Install\Schema;
+use CustomerLens\Orders\OrderSync;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -30,6 +31,8 @@ final class Plugin {
 
 		// Also creates the tables on each site of a network activation, on that site's first request.
 		Schema::maybe_upgrade();
+
+		OrderSync::add_hooks();
 	}
 
 	public static function declare_compatibility(): void {

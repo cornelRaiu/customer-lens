@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Schema {
 
-	public const VERSION        = 1;
+	public const VERSION        = 2;
 	public const VERSION_OPTION = 'mwtcl_schema_version';
 
 	public const CUSTOMERS           = 'mwtcl_customers';
@@ -116,8 +116,12 @@ final class Schema {
   match_method varchar(32) NOT NULL,
   confidence tinyint(3) unsigned NOT NULL DEFAULT 0,
   matched_at datetime NOT NULL,
+  status varchar(32) NOT NULL DEFAULT '',
+  total decimal(14,2) NOT NULL DEFAULT 0,
+  currency char(3) NOT NULL DEFAULT '',
+  created_at datetime DEFAULT NULL,
   PRIMARY KEY  (order_id),
-  KEY customer_id (customer_id)
+  KEY customer_created (customer_id,created_at)
 ) {$collate};",
 			"CREATE TABLE {$t[ self::ORDER_IDENTITIES ]} (
   order_id bigint(20) unsigned NOT NULL,
