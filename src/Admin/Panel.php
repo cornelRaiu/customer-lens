@@ -137,15 +137,14 @@ final class Panel {
 		return $names;
 	}
 
-	/** A date stored in UTC, in the site's date format and time zone. */
-	public static function date( ?string $utc, bool $with_time = false ): string {
+	/** A date stored in UTC, short, in the site's time zone. */
+	public static function date( ?string $utc ): string {
 		if ( ! $utc ) {
 			return '';
 		}
 
-		$format = get_option( 'date_format' ) . ( $with_time ? ' ' . get_option( 'time_format' ) : '' );
-
-		return (string) wp_date( $format, (int) strtotime( $utc . ' UTC' ) );
+		/* translators: Short date format, see https://www.php.net/manual/datetime.format.php */
+		return (string) wp_date( __( 'M j, Y', 'customer-lens' ), (int) strtotime( $utc . ' UTC' ) );
 	}
 
 	/** What the timeline says about an event. */

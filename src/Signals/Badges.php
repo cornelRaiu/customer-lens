@@ -39,13 +39,21 @@ final class Badges {
 			$badges[] = self::badge( 'ordinal', self::ordinal_label( $ordinal ), 1 === $ordinal && $settings['first_order_warning'] ? self::WARNING : self::NEUTRAL );
 		}
 
+		$signals = $signals ?? [];
+
+		// Refused deliveries, then the flag: what a clerk acts on before shipping cash on delivery.
+		$refused = (int) ( $signals['refused_count'] ?? 0 );
+		if ( $refused ) {
+			/* translators: %s: number of refused cash-on-delivery parcels. */
+			$label    = sprintf( _n( '%s refused COD', '%s refused COD', $refused, 'customer-lens' ), number_format_i18n( $refused ) );
+			$badges[] = self::badge( 'refused', $label, self::level( $refused, (int) $settings['refused_warning'], (int) $settings['refused_critical'] ) );
+		}
+
 		if ( $customer && Customers::FLAG_WATCH === (int) $customer->flag_status ) {
 			$badges[] = self::badge( 'flag', __( 'Flagged: watch', 'customer-lens' ), self::WARNING );
 		} elseif ( $customer && Customers::FLAG_TRUSTED === (int) $customer->flag_status ) {
 			$badges[] = self::badge( 'flag', __( 'Trusted', 'customer-lens' ), self::GOOD );
 		}
-
-		$signals = $signals ?? [];
 
 		$refunds = (int) ( $signals['refunds_count'] ?? 0 );
 		if ( $refunds ) {
@@ -55,13 +63,6 @@ final class Badges {
 				/* translators: %s: number of refunds. */
 				: sprintf( _n( '%s refund', '%s refunds', $refunds, 'customer-lens' ), number_format_i18n( $refunds ) );
 			$badges[] = self::badge( 'refunds', $label, self::level( $refunds, (int) $settings['refunds_warning'] ) );
-		}
-
-		$refused = (int) ( $signals['refused_count'] ?? 0 );
-		if ( $refused ) {
-			/* translators: %s: number of refused cash-on-delivery parcels. */
-			$label    = sprintf( _n( '%s refused COD', '%s refused COD', $refused, 'customer-lens' ), number_format_i18n( $refused ) );
-			$badges[] = self::badge( 'refused', $label, self::level( $refused, (int) $settings['refused_warning'], (int) $settings['refused_critical'] ) );
 		}
 
 		$cancels = (int) ( $signals['cancels_count'] ?? 0 );

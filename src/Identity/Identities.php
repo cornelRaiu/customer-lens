@@ -186,6 +186,12 @@ final class Identities {
 			$kinds[ (int) $row->order_id ][] = $row->kind;
 		}
 
+		// Strongest first: email, phone, address.
+		$order = array_flip( [ self::EMAIL, self::PHONE, self::ADDRESS ] );
+		foreach ( $kinds as &$list ) {
+			usort( $list, static fn( $a, $b ) => $order[ $a ] <=> $order[ $b ] );
+		}
+
 		return $kinds;
 	}
 

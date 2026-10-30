@@ -188,7 +188,7 @@ final class OrdersList {
 		?>
 		<label class="screen-reader-text" for="mwtcl-filter"><?php esc_html_e( 'Filter by Customer Lens signals', 'customer-lens' ); ?></label>
 		<select name="<?php echo esc_attr( self::FILTER_VAR ); ?>" id="mwtcl-filter">
-			<option value=""><?php esc_html_e( 'Customer Lens: all customers', 'customer-lens' ); ?></option>
+			<option value=""><?php esc_html_e( 'Customer Lens', 'customer-lens' ); ?></option>
 			<?php foreach ( self::filters() as $value => $label ) : ?>
 				<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $current, $value ); ?>><?php echo esc_html( $label ); ?></option>
 			<?php endforeach; ?>

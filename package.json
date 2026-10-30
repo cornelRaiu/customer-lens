@@ -1,0 +1,17 @@
+{
+    "name": "customer-lens",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Tools that render the WordPress.org assets of the Customer Lens plugin.",
+    "license": "GPL-3.0-or-later",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "assets": "node bin/render-assets.js",
+        "screenshots": "node bin/screenshots.js"
+    },
+    "devDependencies": {
+        "@playwright/test": "1.64.1"
+    }
+}

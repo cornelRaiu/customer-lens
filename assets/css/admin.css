@@ -10,6 +10,7 @@
 }
 
 .mwtcl {
+	container-type: inline-size;
 	transition: opacity 0.15s;
 }
 
@@ -131,7 +132,8 @@
 	vertical-align: middle;
 }
 
-.mwtcl-table mark.order-status {
+.mwtcl-table mark.order-status,
+.mwtcl-table td:nth-child(2) {
 	white-space: nowrap;
 }
 
@@ -225,7 +227,9 @@
 
 .mwtcl-dialog h2 {
 	margin: 0;
+	padding: 0;
 	font-size: 16px;
+	font-weight: 600;
 }
 
 .mwtcl-dialog fieldset {
@@ -292,6 +296,22 @@
 	margin-right: auto;
 }
 
+/* The order screen's main column is narrow next to its sidebar: stack the panel there. */
+@container (max-width: 820px) {
+	.mwtcl-body {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.mwtcl-orders {
+		border-right: 0;
+		border-bottom: 1px solid #f0f0f1;
+	}
+
+	.mwtcl-actions {
+		margin-left: 0;
+	}
+}
+
 @media (max-width: 960px) {
 	.mwtcl-body {
 		grid-template-columns: minmax(0, 1fr);
@@ -314,7 +334,11 @@
 /* The Customer Lens column of the orders list. */
 
 .column-customer_lens {
-	width: 16%;
+	width: 20%;
+}
+
+#mwtcl-filter {
+	border-color: #7f54b3;
 }
 
 .column-customer_lens .mwtcl-badge {

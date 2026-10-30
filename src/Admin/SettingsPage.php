@@ -184,6 +184,8 @@ final class SettingsPage {
 			if ( Importer::RUNNING === $state['status'] ) {
 				/* translators: 1: orders indexed so far, 2: all orders. */
 				echo esc_html( sprintf( __( 'Indexing past orders: %1$s of %2$s.', 'customer-lens' ), number_format_i18n( (int) $state['done'] ), number_format_i18n( (int) $state['total'] ) ) );
+			} elseif ( Importer::DONE === $state['status'] && 0 === (int) $state['total'] ) {
+				esc_html_e( 'There were no past orders to index. New orders are indexed as they come in.', 'customer-lens' );
 			} elseif ( Importer::DONE === $state['status'] ) {
 				/* translators: 1: number of orders, 2: date. */
 				echo esc_html( sprintf( __( 'All %1$s past orders were indexed on %2$s. New orders are indexed as they come in.', 'customer-lens' ), number_format_i18n( (int) $state['total'] ), wp_date( (string) get_option( 'date_format' ), (int) $state['finished'] ) ) );
