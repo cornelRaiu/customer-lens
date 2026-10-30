@@ -17,8 +17,11 @@ final class SettingsPage {
 	public const SLUG           = 'customer-lens';
 	public const REINDEX_ACTION = 'mwtcl_reindex';
 
-	/** The policy text is offered in these languages, besides the site's own. */
-	public const POLICY_LOCALES = [ 'en_US', 'ro_RO' ];
+	/** The policy text is offered in these languages, besides the site's own, each named in its own language. */
+	public const POLICY_LOCALES = [
+		'en_US' => 'English',
+		'ro_RO' => 'Română',
+	];
 
 	public static function add_hooks(): void {
 		add_action( 'admin_menu', [ self::class, 'menu' ] );
@@ -146,8 +149,8 @@ final class SettingsPage {
 					<p><?php esc_html_e( 'Customer Lens processes data your store already holds, for fulfilment and fraud prevention. Add a paragraph like this one to your privacy policy. It is also suggested under Settings > Privacy > Policy Guide.', 'customer-lens' ); ?></p>
 					<?php foreach ( self::policy_texts() as $locale => $text ) : ?>
 						<div class="mwtcl-policy">
-							<label for="mwtcl-policy-<?php echo esc_attr( $locale ); ?>"><strong><?php echo esc_html( $locale ); ?></strong></label>
-							<textarea id="mwtcl-policy-<?php echo esc_attr( $locale ); ?>" class="large-text" rows="5" readonly><?php echo esc_textarea( $text ); ?></textarea>
+							<label for="mwtcl-policy-<?php echo esc_attr( $locale ); ?>"><strong><?php echo esc_html( self::POLICY_LOCALES[ $locale ] ?? $locale ); ?></strong></label>
+							<textarea id="mwtcl-policy-<?php echo esc_attr( $locale ); ?>" class="large-text" rows="8" readonly><?php echo esc_textarea( $text ); ?></textarea>
 							<button type="button" class="button" data-mwtcl-copy="mwtcl-policy-<?php echo esc_attr( $locale ); ?>" data-copied="<?php esc_attr_e( 'Copied', 'customer-lens' ); ?>"><?php esc_html_e( 'Copy', 'customer-lens' ); ?></button>
 						</div>
 					<?php endforeach; ?>
@@ -238,7 +241,7 @@ final class SettingsPage {
 	private static function policy_texts(): array {
 		$texts = [ determine_locale() => Privacy::policy_text() ];
 
-		foreach ( self::POLICY_LOCALES as $locale ) {
+		foreach ( array_keys( self::POLICY_LOCALES ) as $locale ) {
 			if ( isset( $texts[ $locale ] ) ) {
 				continue;
 			}
